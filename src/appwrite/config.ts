@@ -66,7 +66,7 @@ export class AppwriteService {
 
     async getCurrentUser() {
         try {
-           return account.get()
+           return await account.get()
         } catch (error) {
             console.log("getCurrentUser" + error);
         }
@@ -86,4 +86,4 @@ export class AppwriteService {
 
 const appwriteService = new AppwriteService()
 
-export default  appwriteService
+export default  appwriteService;
