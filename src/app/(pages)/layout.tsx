@@ -1,5 +1,4 @@
 "use client";
-
 import appwriteService from "@/appwrite/config";
 import Blog from "@/components/Blog";
 import Header from "@/components/Header";
