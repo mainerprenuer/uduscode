@@ -11,7 +11,7 @@ const ProfilePage = () => {
                         &lt;
                     </span>
                 </Link>
-                <span className="text-3xl font-bold">My Account</span>
+                <span className="text-3xl font-bold">Personal Information</span>
             </h1>
             <ProfileCard />
         </div>

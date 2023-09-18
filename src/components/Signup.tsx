@@ -2,7 +2,6 @@
 import appwriteService from "@/appwrite/config";
 import useAuth from "@/context/useAuth";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
 import router from "next/router";
 import React, {FormEvent, useState} from "react";
 
@@ -11,6 +10,7 @@ const Signup  = () => {
         email: "",
         password: "",
         name: "",
+        
     })
     const [error, setError] = useState("")
 
@@ -35,7 +35,7 @@ const Signup  = () => {
             <div className={`mx-auto w-full max-w-lg bg-gray-200/50 rounded-xl p-10`}>
                 <div className="mb-2 flex justify-center">
                     <span className="inline-block w-full max-w-[60px]">
-                        <img src="/favicon.ico" alt="Logo" />
+                        <img src="/udus-logo.ico" alt="Logo" />
                     </span>
                 </div>
                 <h2 className="text-center text-2xl font-bold leading-tight text-black">

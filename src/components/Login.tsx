@@ -3,7 +3,6 @@ import appwriteService from "@/appwrite/config";
 import useAuth from "@/context/useAuth";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import router from "next/router";
 import React, {FormEvent, useState} from "react";
 
 const Login = () => {
@@ -41,12 +40,12 @@ const Login = () => {
                     Sign in to your account
                 </h2>
                 <p className="mt-2 text-center text-base text-gray-600">
-                    Don&apos;t have any account?&nbsp;
+                    Don't have an account yet? &nbsp;
                     <Link
-                        href="/signup"
+                        href="/verify"
                         className="font-medium text-primary transition-all duration-200 hover:underline"
                     >
-                        Sign Up
+                        Verify
                     </Link>
                 </p>
                 {error && <p className="text-red-600 mt-8 text-center">{error}</p>}
