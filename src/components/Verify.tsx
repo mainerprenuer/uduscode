@@ -1,10 +1,7 @@
 "use client";
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
-import toast, { Toaster } from 'react-hot-toast';
-
-
-const notify = () => toast('Here is your toast.');
+import toast from 'react-hot-toast';
 
 const Verify = () => {
   const [verificationCode, setVerificationCode] = useState('');
@@ -12,10 +9,10 @@ const Verify = () => {
 
   const handleVerification = () => {
     if (verificationCode === '12345') {
-        <Toaster/>
         router.push('/signup');
+        toast.success("Success👏, register now")
     } else {
-      alert('Verification code is incorrect. Please try again.');
+      toast.error("Unrecognised Admission number. Please try again.");
     }
   };
 
@@ -48,7 +45,8 @@ const Verify = () => {
             <div>
                 <button
                     className="mt-3 inline-flex w-full items-center justify-center rounded-md bg-primary px-3.5 py-2.5 font-semibold leading-7 text-white hover:bg-primary/80"
-                    onClick={handleVerification}>
+                    onClick={handleVerification}
+                    >
                     Verify
                 </button>
             </div>

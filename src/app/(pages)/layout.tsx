@@ -4,6 +4,7 @@ import Blog from "@/components/Blog";
 import Header from "@/components/Header";
 import { AuthProvider} from '@/context/authContext';
 import React, { useEffect, useState } from "react";
+import { Toaster } from "react-hot-toast";
 
 const ProtectedLayout = (
     { children,}
@@ -48,6 +49,7 @@ const ProtectedLayout = (
             </div>
             <Header />
             <main className="px-2 py-4">{children}</main>
+            <Toaster position="top-right"/>
             </>
         )}
     </AuthProvider>
