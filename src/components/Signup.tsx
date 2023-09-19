@@ -9,7 +9,9 @@ const Signup  = () => {
     const [formData, setFormData] = useState({
         email: "",
         password: "",
-        name: "",
+        firstname: "",
+        lastname: "",
+        othername: "",
         
     })
     const [error, setError] = useState("")
@@ -35,11 +37,11 @@ const Signup  = () => {
             <div className={`mx-auto w-full max-w-lg bg-gray-200/50 rounded-xl p-10`}>
                 <div className="mb-2 flex justify-center">
                     <span className="inline-block w-full max-w-[60px]">
-                        <img src="/udus-logo.ico" alt="Logo" />
+                        <img src="/favicon.ico" alt="Logo" />
                     </span>
                 </div>
                 <h2 className="text-center text-2xl font-bold leading-tight text-black">
-                    Sign up to create account
+                    Register to create account
                 </h2>
                 <p className="mt-2 text-center text-base text-gray-600">
                     Already have an account?&nbsp;
@@ -54,23 +56,60 @@ const Signup  = () => {
                 <form onSubmit={create} className="mt-8">
                     <div className="space-y-5">
                         <div>
-                            <label htmlFor="name" className="text-base font-medium text-gray-900">
-                                Full Name
+                            <label htmlFor="firstname" className="text-base font-medium text-gray-900">
+                                First Name
                             </label>
                             <div className="mt-2">
                                 <input
                                     className="flex h-10 w-full rounded-md border border-gray-300 bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
                                     type="text"
-                                    placeholder="Full Name"
-                                    id="name"
-                                    value={formData.name}
+                                    placeholder="First Name"
+                                    id="firstname"
+                                    value={formData.firstname}
                                     onChange={(e) =>
-                                        setFormData((prev) => ({ ...prev, name: e.target.value }))
+                                        setFormData((prev) => ({ ...prev, firstname: e.target.value }))
                                     }
                                     required
                                 />
                             </div>
                         </div>
+                        <div>
+                            <label htmlFor="lastname" className="text-base font-medium text-gray-900">
+                                Last Name
+                            </label>
+                            <div className="mt-2">
+                                <input
+                                    className="flex h-10 w-full rounded-md border border-gray-300 bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
+                                    type="text"
+                                    placeholder="Last Name"
+                                    id="lastname"
+                                    value={formData.lastname}
+                                    onChange={(e) =>
+                                        setFormData((prev) => ({ ...prev, lastname: e.target.value }))
+                                    }
+                                    required
+                                />
+                            </div>
+                        </div>
+                        <div>
+                            <label htmlFor="othername" className="text-base font-medium text-gray-900">
+                                Other Name
+                            </label>
+                            <div className="mt-2">
+                                <input
+                                    className="flex h-10 w-full rounded-md border border-gray-300 bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
+                                    type="text"
+                                    placeholder="Other Name"
+                                    id="othername"
+                                    value={formData.othername}
+                                    onChange={(e) =>
+                                        setFormData((prev) => ({ ...prev, othername: e.target.value }))
+                                    }
+                                    required
+                                />
+                            </div>
+                        </div>
+                        
                         <div>
                             <label htmlFor="email" className="text-base font-medium text-gray-900">
                                 Email address

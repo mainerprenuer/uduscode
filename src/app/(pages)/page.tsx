@@ -3,7 +3,7 @@
 import useAuth from "@/context/useAuth";
 import React from "react";
 import Login from "@/components/Login";
-import Verify from "@/components/Verify";
+import Verification from "@/components/Verification";
 
 const Home = () => {
     const {authStatus} = useAuth();
@@ -13,7 +13,7 @@ const Home = () => {
                 <div className="w-full sm:w-1/2 px-2 flex justify-center flex-wrap items-center">
                     <div className="relative text-center w-full flex justify-center flex-wrap">
                         <div className="w-full max-w-[100px]">
-                            <img src="/udus-logo.png" alt="Logo" />
+                            <img src="/favicon.ico" alt="Logo" />
                         </div>
                         <div className="w-full">
                             <h1 className="font-bold text-3xl mb-4">
@@ -31,7 +31,7 @@ const Home = () => {
                             <Login />
                         </div>
                     ) : (
-                        <Verify />
+                        <Verification />
                     )}
                 </div>
             </div>

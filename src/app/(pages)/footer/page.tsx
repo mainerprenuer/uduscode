@@ -1,7 +1,9 @@
 "use client";
+import { useRouter } from "next/navigation";
 import React from "react";
 import Footer from "@/components/Footer";
 const FooterPage = () => {
+    const router = useRouter();
 
     return (
         <section className='px-4 py-10 sm:px-6 sm:py-16

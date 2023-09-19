@@ -45,10 +45,10 @@ const Login = () => {
                 <p className="mt-2 text-center text-base text-gray-600">
                     Don't have an account yet? &nbsp;
                     <Link
-                        href="/verify"
+                        href="/verification"
                         className="font-medium text-primary transition-all duration-200 hover:underline"
                     >
-                        Verify
+                        Verification
                     </Link>
                 </p>
                 {error && <p className="text-red-600 mt-8 text-center">{error}</p>}

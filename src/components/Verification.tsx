@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import toast from 'react-hot-toast';
 
-const Verify = () => {
+const Verification = () => {
   const [verificationCode, setVerificationCode] = useState('');
   const router = useRouter();
 
@@ -30,7 +30,7 @@ const Verify = () => {
                         V E R I F I C A T I O N
                 </h2>
                 <p className="mt-10 text-center text-base text-black">
-                        Verify Admission:
+                        Verify Your Admission:
                 </p>
                 <div className="mt-3">
                     <input
@@ -48,7 +48,7 @@ const Verify = () => {
                     className="mt-3 inline-flex w-full items-center justify-center rounded-md bg-primary px-3.5 py-2.5 font-semibold leading-7 text-white hover:bg-primary/80"
                     onClick={handleVerification}
                     >
-                    Verify
+                    Check
                 </button>
             </div>
           </div>
@@ -57,4 +57,4 @@ const Verify = () => {
 }
 
 
-export default Verify;
+export default Verification;
