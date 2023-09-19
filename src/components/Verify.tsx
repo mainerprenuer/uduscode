@@ -8,9 +8,10 @@ const Verify = () => {
   const router = useRouter();
 
   const handleVerification = () => {
-    if (verificationCode === '12345') {
-        router.push('/signup');
-        toast.success("Success👏, register now")
+    const validCodes = ['12345', '67890', '54321', '98765', '11111'];
+    if (validCodes.includes(verificationCode)) {
+          router.push('/signup');
+      toast.success("Success👏, register now")
     } else {
       toast.error("Unrecognised Admission number. Please try again.");
     }

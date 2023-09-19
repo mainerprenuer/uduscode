@@ -4,6 +4,7 @@ import useAuth from "@/context/useAuth";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import React, {FormEvent, useState} from "react";
+import { toast } from "react-hot-toast";
 
 const Login = () => {
     const router = useRouter()
@@ -22,9 +23,11 @@ const Login = () => {
             if (session) {
                 setAuthStatus(true)
                 router.push("/profile")
+                toast.success("Logged in successfully")
             }
         } catch (error: any) {
-            setError(error.message)
+            // setError(error.message)
+            toast.error(error.message)
         }
     }
 
