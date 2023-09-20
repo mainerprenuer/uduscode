@@ -4,6 +4,7 @@ import useAuth from "@/context/useAuth";
 import Link from "next/link";
 import router from "next/router";
 import React, {FormEvent, useState} from "react";
+import { toast } from "react-hot-toast";
 
 const Signup  = () => {
     const [formData, setFormData] = useState({
@@ -12,6 +13,13 @@ const Signup  = () => {
         firstname: "",
         lastname: "",
         othername: "",
+        phonenumber: "",
+        state: "",
+        lg: "",
+        address: "",
+        passport: "",
+        nokfullname: "",
+        nokphonenumber: ""
         
     })
     const [error, setError] = useState("")
@@ -28,7 +36,7 @@ const Signup  = () => {
                 router.push("/profile")
             }
         } catch (error: any) {
-            setError(error.message)
+            toast.error(error.message)
         }
     }
 
@@ -41,7 +49,7 @@ const Signup  = () => {
                     </span>
                 </div>
                 <h2 className="text-center text-2xl font-bold leading-tight text-black">
-                    Register to create account
+                    Create an account to register
                 </h2>
                 <p className="mt-2 text-center text-base text-gray-600">
                     Already have an account?&nbsp;
@@ -105,7 +113,6 @@ const Signup  = () => {
                                     onChange={(e) =>
                                         setFormData((prev) => ({ ...prev, othername: e.target.value }))
                                     }
-                                    required
                                 />
                             </div>
                         </div>
@@ -147,6 +154,168 @@ const Signup  = () => {
                                         }))
                                     }
                                     id="password"
+                                    required
+                                />
+                            </div>
+                        </div>
+                        <div>
+                            <div className="flex items-center justify-between">
+                                <label htmlFor="phonenumber" className="text-base font-medium text-gray-900">
+                                    Phone Number
+                                </label>
+                            </div>
+                            <div className="mt-2">
+                                <input
+                                    className="flex h-10 w-full rounded-md border border-gray-300 bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
+                                    type="tel"
+                                    placeholder="phonenumber"
+                                    value={formData.phonenumber}
+                                    onChange={(e) =>
+                                        setFormData((prev) => ({
+                                            ...prev,
+                                            phonenumber: e.target.value,
+                                        }))
+                                    }
+                                    id="phonenumber"
+                                    required
+                                />
+                            </div>
+                        </div>
+                        <div>
+                            <div className="flex items-center justify-between">
+                                <label htmlFor="state" className="text-base font-medium text-gray-900">
+                                    Select State
+                                </label>
+                            </div>
+                            <div className="mt-2">
+                                <input
+                                    className="flex h-10 w-full rounded-md border border-gray-300 bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
+                                    type="state"
+                                    placeholder="State"
+                                    value={formData.state}
+                                    onChange={(e) =>
+                                        setFormData((prev) => ({
+                                            ...prev,
+                                            state: e.target.value,
+                                        }))
+                                    }
+                                    id="state"
+                                    required
+                                />
+                            </div>
+                        </div>
+                        <div>
+                            <div className="flex items-center justify-between">
+                                <label htmlFor="lg" className="text-base font-medium text-gray-900">
+                                    Select Local Government
+                                </label>
+                            </div>
+                            <div className="mt-2">
+                                <input
+                                    className="flex h-10 w-full rounded-md border border-gray-300 bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
+                                    type="lg"
+                                    placeholder="Local Government"
+                                    value={formData.lg}
+                                    onChange={(e) =>
+                                        setFormData((prev) => ({
+                                            ...prev,
+                                            lg: e.target.value,
+                                        }))
+                                    }
+                                    id="lg"
+                                    required
+                                />
+                            </div>
+                        </div>
+                        <div>
+                            <div className="flex items-center justify-between">
+                                <label htmlFor="address" className="text-base font-medium text-gray-900">
+                                    Address
+                                </label>
+                            </div>
+                            <div className="mt-2">
+                                <input
+                                    className="flex h-10 w-full rounded-md border border-gray-300 bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
+                                    type="address"
+                                    placeholder="Address"
+                                    value={formData.address}
+                                    onChange={(e) =>
+                                        setFormData((prev) => ({
+                                            ...prev,
+                                            address: e.target.value,
+                                        }))
+                                    }
+                                    id="address"
+                                    required
+                                />
+                            </div>
+                        </div>
+                        <div>
+                            <div className="flex items-center justify-between">
+                                <label htmlFor="passport" className="text-base font-medium text-gray-900">
+                                    Passport Upload
+                                </label>
+                            </div>
+                            <div className="mt-2">
+                                <input
+                                    className="flex h-10 w-full rounded-md border border-gray-300 bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
+                                    type="file"
+                                    placeholder="Passport"
+                                    value={formData.passport}
+                                    accept="image/*"
+                                    onChange={(e) =>
+                                        setFormData((prev) => ({
+                                            ...prev,
+                                            passport: e.target.value,
+                                        }))
+                                    }
+                                    id="image"
+                                    required
+                                />
+                            </div>
+                        </div>
+                        <div>
+                            <div className="flex items-center justify-between">
+                                <label htmlFor="nokphonenumber" className="text-base font-medium text-gray-900">
+                                    Next Of Kin Full Name
+                                </label>
+                            </div>
+                            <div className="mt-2">
+                                <input
+                                    className="flex h-10 w-full rounded-md border border-gray-300 bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
+                                    type="nokfullname"
+                                    placeholder="Next of Kin Full Name"
+                                    value={formData.nokfullname}
+                                    onChange={(e) =>
+                                        setFormData((prev) => ({
+                                            ...prev,
+                                            nokfullname: e.target.value,
+                                        }))
+                                    }
+                                    id="nokfullname"
+                                    required
+                                />
+                            </div>
+                        </div>
+                        <div>
+                            <div className="flex items-center justify-between">
+                                <label htmlFor="nokfullname" className="text-base font-medium text-gray-900">
+                                    Next Of Kin Phone Number
+                                </label>
+                            </div>
+                            <div className="mt-2">
+                                <input
+                                    className="flex h-10 w-full rounded-md border border-gray-300 bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
+                                    type="nokphonenumber"
+                                    placeholder="Next of Kin Phone Number"
+                                    value={formData.nokphonenumber}
+                                    onChange={(e) =>
+                                        setFormData((prev) => ({
+                                            ...prev,
+                                            nokphonenumber: e.target.value,
+                                        }))
+                                    }
+                                    id="nokphonenumber"
                                     required
                                 />
                             </div>

@@ -45,7 +45,7 @@ const ProfileCard = () => {
                         </div>
                         <div className="relative w-full">
                             <p className="text-sm text-gray-700">Phone Number</p>
-                            <p className="font-semibold">999-888-7777</p>
+                            <p className="font-semibold">{user.phone}</p>
                         </div>
                         <div className="relative w-full">
                             <p className="text-sm text-gray-700">Password</p>

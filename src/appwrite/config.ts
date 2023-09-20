@@ -6,7 +6,14 @@ type CreateUserAccount = {
     password: string,
     firstname: string,
     lastname: string,
-    othername: string
+    othername: string,
+    phonenumber: string,
+    state: string,
+    lg: string,
+    address: string,
+    passport: string,
+    nokfullname: string,
+    nokphonenumber: string
 }
 
 type LoginUserAccount = {
@@ -28,19 +35,49 @@ export const storage = new Storage(appwriteClient);
 
 export class AppwriteService {
     // create a new record of user into appwrite account
-    async createUserAccount({ email, password, firstname, lastname, othername }
+    async createUserAccount({ 
+        email,
+        password, 
+        firstname, 
+        lastname, 
+        othername, 
+        phonenumber,
+        state,
+        lg,
+        address,
+        passport,
+        nokfullname,
+        nokphonenumber,
+     }
         :CreateUserAccount) {
             try {
                 const userAccount = await account.create(
-
                     ID.unique(),
                     email,
                     password, 
                     firstname,
                     lastname,
                     othername,
+                    phonenumber,
+                    state,
+                    lg,
+                    address,
+                    passport,
+                    nokfullname,
+                    nokphonenumber
                 )
                 if (userAccount) {
+                    //store the user account to database
+                    try {
+                         await database.createDocument(
+                            conf.appwriteStudentsDbId, 
+                            conf.appwriteStudentsRegId,
+                            ID.unique(),
+                            userAccount);           
+                         } catch (error: any) {
+                        console.error("Error creating document:", error);
+                    }
+                       
                     return this.login({ email, password })
                 } else {
                     return userAccount
@@ -92,6 +129,7 @@ export class AppwriteService {
     }
 
 }
+
 
 const appwriteService = new AppwriteService()
 
